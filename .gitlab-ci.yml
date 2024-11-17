@@ -1,0 +1,17 @@
+image: eclipse-temurin:21
+
+stages:
+  - build
+  - changelog
+
+include:
+  - remote: 'https://gitlab.com/g3476/cliffhanger/-/raw/main/gitlab-ci/cliffhanger.yml'
+
+build:
+  only:
+    - tags
+  stage: build
+  script: >
+    ./gradlew build
+
+
