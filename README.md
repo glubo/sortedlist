@@ -88,6 +88,7 @@ Result[mean=PT0.000505244S, stdDev=PT0.000385013S, name=SortedArrayList]
 Here we see that all the results are within the standard deviation within each other, so no apparent winners/loosers.
 
 
+
 ### What next
 
 Those benchmarks are just a small example, that illustrates that Bjarne Stroustrup's recommendation to avoid linked lists and prefer compact structures probably translates well to java.
