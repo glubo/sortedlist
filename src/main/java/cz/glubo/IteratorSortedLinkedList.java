@@ -5,6 +5,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.function.Predicate;
 
+import static java.lang.Integer.signum;
+
 public class IteratorSortedLinkedList<Type extends Comparable<Type>> implements SortedList<Type> {
     private LinkedList<Type> list = new LinkedList<>();
 
@@ -53,6 +55,25 @@ public class IteratorSortedLinkedList<Type extends Comparable<Type>> implements 
 
     @Override
     public boolean contains(Type element) {
-        return list.contains(element);
+        var i = list.listIterator();
+
+        if (list.isEmpty() || list.getLast().compareTo(element) < 0) {
+            return false;
+        }
+
+        while (i.hasNext()) {
+            var current = i.next();
+
+            switch (signum(current.compareTo(element))) {
+                case 1:
+                    return false;
+                case 0:
+                    return true;
+                default:
+                    continue;
+            }
+
+        }
+        throw new RuntimeException("iterated over whole list, this should not happen");
     }
 }
