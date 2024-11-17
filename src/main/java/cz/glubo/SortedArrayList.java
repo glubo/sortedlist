@@ -14,9 +14,11 @@ public class SortedArrayList<Type extends Comparable<Type>> implements SortedLis
         if (element == null) return;
 
         int index = Collections.binarySearch(array, element, Comparable<Type>::compareTo);
-        if (index >= 0) return;
-
-        array.add(-1 - index, element);
+        if (index >= 0) {
+            array.add(index, element);
+        } else {
+            array.add(-1 - index, element);
+        }
     }
 
     @Override

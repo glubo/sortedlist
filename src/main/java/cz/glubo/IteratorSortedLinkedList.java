@@ -14,9 +14,15 @@ public class IteratorSortedLinkedList<Type extends Comparable<Type>> implements 
 
         var i = list.listIterator();
 
+        if (list.isEmpty() || list.getLast().compareTo(newElement) < 0) {
+            list.addLast(newElement);
+            return;
+        }
+
         while (i.hasNext()) {
             var current = i.next();
-            if (current.compareTo(newElement) > 0) {
+
+            if (current.compareTo(newElement) >= 0) {
                 if (i.hasPrevious()) {
                     i.previous();
                     i.add(newElement);
@@ -26,7 +32,8 @@ public class IteratorSortedLinkedList<Type extends Comparable<Type>> implements 
                 return;
             }
         }
-        list.addLast(newElement);
+
+        throw new RuntimeException("iterated over whole list, this should not happen");
     }
 
     @Override

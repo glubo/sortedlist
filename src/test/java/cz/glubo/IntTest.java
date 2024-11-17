@@ -23,6 +23,16 @@ public class IntTest implements WithAssertions {
 
     @ParameterizedTest
     @MethodSource("sortedListImplementationArguments")
+    void weCanAddAndRetrieveOneElementMultipleTimes(SortedList<Integer> list) {
+        list.add(1);
+        list.add(1);
+
+        var resultList = toList(list);
+        assertThat(resultList).containsExactly(1, 1);
+    }
+
+    @ParameterizedTest
+    @MethodSource("sortedListImplementationArguments")
     void nullIsIgnored(SortedList<Integer> list) {
         list.add(null);
 

@@ -4,6 +4,36 @@ This repo contains an answer to somewhat loose assignment to create a library th
 
 Since I was interested in how Bjarne Stroustrup's recommendation to almost never use linked lists translates to Java, I tried to implement two linked list implementations and one implementation based on array list and provide basic benchmark capabilities to compare these implementations.
 
+## Uniqueness
+
+I was particularly not sure if I want to implement uniqueness into my solution, but since the name suggested List and not Set, I went in the end with repeating elements with same value (according to their comparator).
+
+## How to use
+
+You can see https://gitlab.com/g3476/sortedlist/-/packages and find the latest version and see how to configure your build system to include our library.
+
+Example for gradle (Kotlin DSL):
+```kotlin
+
+// ...
+dependencies {
+// ...
+    implementation("cz.glubo:sortedlist:<version>") // replace <version> with the latest version
+}
+// ...
+repositories {
+// ...
+    maven("https://gitlab.com/api/v4/projects/64578383/packages/maven")    
+}
+// ...
+```
+
+All our implementations share a common interface [SortedList](https://gitlab.com/g3476/sortedlist/-/blob/main/src/main/java/cz/glubo/SortedList.java?ref_type=heads).
+
+You can see how to use it in our [Integer Test](https://gitlab.com/g3476/sortedlist/-/blob/main/src/test/java/cz/glubo/IntTest.java?ref_type=heads).
+
+If you really wand a linked list, use `IteratorSortedLinkedList`, but I would recommend using `SortedArrayList` instead, see benchmark results below.
+
 
 ## Benchmark results
 
