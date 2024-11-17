@@ -30,8 +30,9 @@ publishing {
     repositories {
         maven {
             val projectId = System.getenv("CI_PROJECT_ID")
+            version = System.getenv("CI_COMMIT_TAG")
             name = "SortedList"
-            url = uri("https://gitlab.example.com/api/v4/projects/${projectId}/packages/maven")
+            url = uri("https://gitlab.com/api/v4/projects/${projectId}/packages/maven")
             credentials(HttpHeaderCredentials::class) {
                 name = "Job-Token"
                 value = System.getenv("CI_JOB_TOKEN")
