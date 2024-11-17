@@ -12,7 +12,7 @@ build:
     - tags
   stage: build
   script: >
-    ./gradlew build
+    ./gradlew build &&
     ./gradlew publish
   artifacts:
     expire_in: 30 days
