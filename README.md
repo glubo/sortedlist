@@ -30,9 +30,9 @@ repositories {
 
 All our implementations share a common interface [SortedList](https://gitlab.com/g3476/sortedlist/-/blob/main/src/main/java/cz/glubo/SortedList.java?ref_type=heads).
 
-You can see how to use it in our [Integer Test](https://gitlab.com/g3476/sortedlist/-/blob/main/src/test/java/cz/glubo/IntTest.java?ref_type=heads).
+You can see how to use it in our [Integer Test](https://gitlab.com/g3476/sortedlist/-/blob/main/src/test/java/cz/glubo/IntTest.java?ref_type=heads) and [String Test](https://gitlab.com/g3476/sortedlist/-/blob/main/src/test/java/cz/glubo/StringTest.java?ref_type=heads).
 
-If you really wand a linked list, use `IteratorSortedLinkedList`, but I would recommend using `SortedArrayList` instead, see benchmark results below.
+If you really want a linked list, use `IteratorSortedLinkedList`, but I would recommend using `SortedArrayList` instead, see benchmark results below.
 
 
 ## Benchmark results

@@ -6,9 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.*;
 import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 
 
 public class IntTest implements WithAssertions {
@@ -17,8 +15,7 @@ public class IntTest implements WithAssertions {
     void weCanAddAndRetrieveOneElement(SortedList<Integer> list) {
         list.add(1);
 
-        var resultList = toList(list);
-        assertThat(resultList).containsExactly(1);
+        assertThat(list).containsExactly(1);
     }
 
     @ParameterizedTest
@@ -27,8 +24,7 @@ public class IntTest implements WithAssertions {
         list.add(1);
         list.add(1);
 
-        var resultList = toList(list);
-        assertThat(resultList).containsExactly(1, 1);
+        assertThat(list).containsExactly(1, 1);
     }
 
     @ParameterizedTest
@@ -36,8 +32,7 @@ public class IntTest implements WithAssertions {
     void nullIsIgnored(SortedList<Integer> list) {
         list.add(null);
 
-        var resultList = toList(list);
-        assertThat(resultList).isEmpty();
+        assertThat(list).isEmpty();
     }
 
     @ParameterizedTest
@@ -46,8 +41,7 @@ public class IntTest implements WithAssertions {
         list.add(1);
         list.clear();
 
-        var resultList = toList(list);
-        assertThat(resultList).isEmpty();
+        assertThat(list).isEmpty();
     }
 
     @ParameterizedTest
@@ -57,8 +51,7 @@ public class IntTest implements WithAssertions {
         list.add(2);
         list.add(1);
 
-        var resultList = toList(list);
-        assertThat(resultList).containsExactly(1, 2, 3);
+        assertThat(list).containsExactly(1, 2, 3);
     }
 
     @ParameterizedTest
@@ -71,8 +64,7 @@ public class IntTest implements WithAssertions {
         list.add(1);
         list.filter((Integer element) -> element % 2 == 1);
 
-        var resultList = toList(list);
-        assertThat(resultList).containsExactly(1, 3, 5);
+        assertThat(list).containsExactly(1, 3, 5);
     }
 
     @ParameterizedTest
@@ -94,8 +86,4 @@ public class IntTest implements WithAssertions {
         return Implementations.allInteger().map(Arguments::of);
     }
 
-
-    private static List<Integer> toList(SortedList<Integer> a) {
-        return StreamSupport.stream(a.spliterator(), false).toList();
-    }
 }

@@ -18,8 +18,11 @@ public class Implementations {
         );
     }
 
-
     public static Stream<SortedList<Integer>> allInteger() {
+        return all();
+    }
+
+    public static Stream<SortedList<String>> allString() {
         return all();
     }
 }
