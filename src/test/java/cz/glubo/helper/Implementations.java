@@ -1,10 +1,7 @@
 package cz.glubo.helper;
 
 
-import cz.glubo.IteratorSortedLinkedList;
-import cz.glubo.NaiveSortedLinkedList;
-import cz.glubo.SortedArrayList;
-import cz.glubo.SortedList;
+import cz.glubo.*;
 
 import java.util.stream.Stream;
 

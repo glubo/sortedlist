@@ -93,9 +93,14 @@ public class BenchmarkTest implements WithAssertions {
                             return Statistics.calculateStatistics(entry.getKey(), entry.getValue());
                         }
                 )
-                .sorted(Comparator.comparing(Statistics.Result::mean));
+                .sorted(Comparator.comparing(Statistics.Result::mean))
+                .toList();
 
-        finalResults.forEach(System.out::println);
+        finalResults
+                .forEach(System.out::println);
+
+        finalResults
+                .forEach(it -> System.out.println(it.toMarkDownRow()));
     }
 
     static int[] BIG_LIST = new Random(666).ints(10000).toArray();
