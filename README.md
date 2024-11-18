@@ -55,6 +55,8 @@ with a Java 21 should work.
 All results are from 10 repetitions, in random order of implementations.
 We have pregenerated two lists of random integers, big with 10 000 elements and small with 1000 elements.
 
+You can see the [BenchmarkTest](https://gitlab.com/g3476/sortedlist/-/blob/main/src/test/java/cz/glubo/BenchmarkTest.java?ref_type=heads) for details.
+
 ### Addition Benchmark
 
 We take the list of 10 000 random integers and add one by one to our sorted list.
