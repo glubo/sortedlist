@@ -11,6 +11,7 @@ public class Implementations {
         return Stream.of(
                 new IteratorSortedLinkedList<>(),
                 new NaiveSortedLinkedList<>(),
+                new NaiveSortedArrayList<>(),
                 new SortedArrayList<>()
         );
     }
