@@ -9,7 +9,7 @@ public class Implementations {
 
     public static <Type extends Comparable<Type>> Stream<SortedList<Type>> all() {
         return Stream.of(
-                new IteratorSortedLinkedList<>(),
+                new SortedLinkedList<>(),
                 new NaiveSortedLinkedList<>(),
                 new NaiveSortedArrayList<>(),
                 new SortedArrayList<>()

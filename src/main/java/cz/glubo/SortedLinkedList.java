@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 
 import static java.lang.Integer.signum;
 
-public class IteratorSortedLinkedList<Type extends Comparable<Type>> implements SortedList<Type> {
+public class SortedLinkedList<Type extends Comparable<Type>> implements SortedList<Type> {
     private LinkedList<Type> list = new LinkedList<>();
 
     @Override
